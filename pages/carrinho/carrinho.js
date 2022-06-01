@@ -14,11 +14,30 @@ export async function getStaticProps() {
   };
 }
 
+
+
+
 export default function FirstPost( { allPostsData } ) {
+  
+  let [carrinho, setCarrinho] = React.useState( allPostsData.items  );
+  
+  function deletarProduto(id) {
+
+    console.log('>>>', carrinho);
+    // alert('increment like count');
+    // const index = carrinho.indexOf(id);
+  
+    // carrinho.splice(index, 1);
+    // setCarrinho(carrinho);
+  }
+
+  // const valorTotal = carrinho.value;
+
   return (
     <Layout>
       <Head>
         <title>Carrinho</title>
+        <link rel="icon" href="/favicon.ico" />
       </Head>
       <div className="box-container">
         <h1 className="titulo-carrinho">Meu carrinho</h1>
@@ -33,7 +52,7 @@ export default function FirstPost( { allPostsData } ) {
                   <p className="valor-produto">R$ {price}</p>
                   <p className="valor-produto-promo">R$ {sellingPrice}</p>
               </div>
-              <button className="btn btn-excluir">
+              <button onClick={deletarProduto(id)} className="btn btn-excluir">
               </button>
 
             </li>
@@ -42,12 +61,15 @@ export default function FirstPost( { allPostsData } ) {
 
         
 
-        <div className="valor-total flex-grid">
-           <div className="valor-total-texto justify-content-between">Total</div>
-           <div className="valor-total-numero justify-content-between">R$ {allPostsData.value}</div>
+        <div className="valor-total">
+           <div className="flex-grid">
+              <div className="valor-total-texto justify-content-between">Total</div>
+              <div className="valor-total-numero justify-content-between">R$ {allPostsData.value}</div>
+           </div>
+           <span className="msg-valor-promo">Parabéns, sua compra tem frete grátis !</span>
         </div>
 
-        <span className="msg-valor-promo">Valor Promo compra acima de R$ 10,00</span>
+        
 
         <button className="btn btn-finalizar">Finalizar compra</button>
 
@@ -56,7 +78,7 @@ export default function FirstPost( { allPostsData } ) {
 
       <h2 className="btn-voltar">
         <Link href="/">
-        <a>← voltar</a>
+        <a>← topo</a>
         </Link>
       </h2>
 
@@ -130,18 +152,19 @@ export default function FirstPost( { allPostsData } ) {
             width: 100%;
             border-top: 1px solid #e3e3e3;
             border-bottom: 1px solid #e3e3e3;
+            margin-bottom: 1.5rem;
         }
 
         .valor-total-texto {
           flex-grow: 1;
-          font-size: 18px;
-          font-weight: bold;
+          font-size: 24px;
+          font-weight: 900;
           margin: 1.5rem 1.5rem;
         }
 
         .valor-total-numero {
-          font-size: 18px;
-          font-weight: bold;
+          font-size: 24px;
+          font-weight: 900;
           margin: 1.5rem 1.5rem;
         }
 
@@ -169,13 +192,14 @@ export default function FirstPost( { allPostsData } ) {
        }
 
        .msg-valor-promo {
-         color: #fff;
+         font-weight: 900;
+         color: #118916;
          text-align: center;
          width: -webkit-fill-available;
          display: block;
-         margin: 1.5rem 1.5rem;
-         padding: 4px 4px;
-         background-color: #14e714;
+         margin: 0 1.5rem 1.5rem 1.5rem;
+         padding: 10px 10px;
+         background-color: #c6f194;
          border-radius: 60px;
        }
        
@@ -216,5 +240,3 @@ export default function FirstPost( { allPostsData } ) {
     </Layout>
   );
 }
-
-

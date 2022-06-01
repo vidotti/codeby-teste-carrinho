@@ -25,7 +25,7 @@ export default function FirstPost( { allPostsData } ) {
   
   function deletarProduto(id) {
 
-    console.log('>>>', carrinho);
+    // console.log('>>>', carrinho);
     // alert('increment like count');
     // const index = carrinho.indexOf(id);
   
@@ -42,7 +42,7 @@ export default function FirstPost( { allPostsData } ) {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <div className="box-container">
-        <h1 className="titulo-carrinho">Meu carrinho</h1>
+        <h1 className="titulo-carrinho">Meu carrinho!</h1>
 
         {/* thumb produto dinamico */}
         <ul className="box-produtos-carrinho">
