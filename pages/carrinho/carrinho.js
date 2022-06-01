@@ -1,8 +1,9 @@
 import Link from 'next/link';
 import Head from 'next/head';
 import Layout from '../../components/layout';
-import { getSortedPostsData } from '../../lib/produtos';
+import { getSortedPostsData } from '../../lib/carrinho-sem-frete-gratis';
 import "@fontsource/poppins";
+import React, { useEffect, useState } from "react";
 
 
 export async function getStaticProps() {
@@ -66,7 +67,6 @@ export default function FirstPost( { allPostsData } ) {
               <div className="valor-total-texto justify-content-between">Total</div>
               <div className="valor-total-numero justify-content-between">R$ {allPostsData.value}</div>
            </div>
-           <span className="msg-valor-promo">Parabéns, sua compra tem frete grátis !</span>
         </div>
 
         
@@ -78,7 +78,7 @@ export default function FirstPost( { allPostsData } ) {
 
       <h2 className="btn-voltar">
         <Link href="/">
-        <a>← topo</a>
+        <a>← Carrinho com frete grátis</a>
         </Link>
       </h2>
 
